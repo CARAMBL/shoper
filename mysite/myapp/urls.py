@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, Contacts, Detail
+from .views import index, Detail
 
 app_name = "myapp"
 

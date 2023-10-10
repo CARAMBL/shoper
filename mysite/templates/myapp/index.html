@@ -2,11 +2,30 @@
 {% load static %}
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/css/styles.css' %}">
     <meta charset="UTF-8">
     <title>index</title>
 </head>
 <body>
+    <nav>
+        <div>
+            <div>
+                <div>
+                    <div class="flex">
+                        <img class="h-8 w-8" src="{% static 'myapp/img/store.png' %}" alt="logo">
+                        <span class="text-xl">CASINO CARAT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
 {% for item in items %}
 
     <a href="{% url 'myapp:detail' item.id %}">

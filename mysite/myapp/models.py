@@ -6,6 +6,7 @@ class Product (models.Model):
     name = models.CharField (max_length=100)
     price = models.IntegerField()
     disc = models.CharField (max_length=500)
+    image = models.ImageField (blank=True, upload_to='images')
 
     def __str__(self):
         return self.name

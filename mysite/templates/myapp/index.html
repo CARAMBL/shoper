@@ -1,40 +1,13 @@
-<!DOCTYPE html>
+{% extends "myapp/base.html" %}
 {% load static %}
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="{% static 'myapp/css/styles.css' %}">
-    <meta charset="UTF-8">
-    <title>index</title>
-</head>
+{% block content %}
 <body>
-    <nav>
-        <div>
-            <div>
-                <div>
-                    <div class="flex">
-                        <img class="h-8 w-8" src="{% static 'myapp/img/store.png' %}" alt="logo">
-                        <span class="text-xl">CASINO CARAT</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
 
-
-
-
-
-
-
-{% for item in items %}
-
-    <a href="{% url 'myapp:detail' item.id %}">
-    <h1> {{ item.name }}  {{ item.price }} {{ item.disc }} </h1> <br/>
-    </a>
-
-
-{% endfor %}
-
+    {% for item in items %}
+        <a href="{% url 'myapp:detail' item.id %}">
+        <h1> {{ item.name }}  {{ item.price }} {{ item.disc }} </h1> <br/>
+        </a>
+    {% endfor %}
 
 </body>
-</html>
+{% endblock content %}

@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="{% static 'myapp/css/styles.css' %}">
-
-    <meta charset="UTF-8">
-    <title>Detail</title>
-
-</head>
+{% extends "myapp/base.html" %}
+{% block content %}
 <body>
 
 <h2> Detail here </h2>
@@ -17,4 +9,4 @@
 
 
 </body>
-</html>
+{% endblock content %}

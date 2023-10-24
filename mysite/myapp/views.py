@@ -12,7 +12,6 @@ def index(request):
     }
     return render(request, "myapp/index.html", context)
 
-
 def Detail (request,id):
 
     item = Product.objects.get(id=id)
@@ -21,7 +20,6 @@ def Detail (request,id):
     }
 
     return render(request, "myapp/detail.html", context)
-
 
 def additem(request):
     if request.method == "POST":
@@ -49,7 +47,6 @@ def updateitem(request,id):
 
     return render(request,"myapp/updateitem.html", context)
 
-
 def deleteitem(request, id):
     item = Product.objects.get(id=id)
     if request.method == "POST":
@@ -60,3 +57,5 @@ def deleteitem(request, id):
         'item': item
     }
     return render(request, "myapp/delete.html", context)
+
+

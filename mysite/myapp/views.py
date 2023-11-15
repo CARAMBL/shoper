@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.urls import reverse_lazy
@@ -9,11 +10,29 @@ from django.views.generic import ListView, DetailView, DeleteView
 
 # Create your views here.
 
+def index(request):
+    page_obj = items = Product.objects.all()
+
+    item_name = request.GET.get("search")
+    if item_name != "" and item_name is not None:
+        page_obj = items.filter(name__icontains=item_name)
+
+    paginator = Paginator(page_obj, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    context = {"page_obj": page_obj}
+    return render(request, "myapp/index.html", context)
+
 
 class ProductListView(ListView):
     model = Product
     template_name = "myapp/index.html"
-    context_object_name = "items"
+    context_object_name = "page_obj"
+    paginate_by = 3
+
+    item_name = request.GET.get('search')
+    if item_name != '' and item_name is not None:
+        page_obj = items.filter(name__icontains=item_name)
 
 class ProductDetail(DetailView):
     model = Product
